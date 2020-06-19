@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="vue.js"></script>
+  <title>Document</title>
+</head>
+
+
+
+
+<body>
+  <div id="app">
+    <p>現在{{number}}回クリックされている</p>
+    <button v-on:click= "countUp(2)">カウントアップ</button>
+    <p v-on:mousemove = "change">マウスを乗せてください</p>
+    <p>X:{{x}},Y:{{y}}</p>
+    <input type="text" v-on:keyup="myalert">
+  </div>
+
+  <script>
+  new Vue({
+    el: "#app",
+    data: {
+      number: 0,
+      x: 0,
+      y: 0
+    },
+    methods: {
+      countUp: function(number){
+        this.number += 1 * number
+      },
+      change: function(event){
+        this.x = event.clientX;
+        this.y = event.clientY;
+      },
+      myalert(){
+        alert("アラート");
+      }
+    }
+  })
+</script>
+
+
+
+
+
+
+</body>
+</html>
