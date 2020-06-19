@@ -12,31 +12,20 @@
 
 <body>
   <div id="app">
-    <p>現在{{number}}回クリックされている</p>
-    <button v-on:click= "countUp(2)">カウントアップ</button>
-    <p v-on:mousemove = "change">マウスを乗せてください</p>
-    <p>X:{{x}},Y:{{y}}</p>
-    <input type="text" v-on:keyup="myalert">
+    <p>{{counter}}</p>
+    <button @click="counter += 1">+1</button>
+    <p>{{lessThanThree}}</p>
   </div>
 
   <script>
   new Vue({
     el: "#app",
     data: {
-      number: 0,
-      x: 0,
-      y: 0
+      counter: 0
     },
-    methods: {
-      countUp: function(number){
-        this.number += 1 * number
-      },
-      change: function(event){
-        this.x = event.clientX;
-        this.y = event.clientY;
-      },
-      myalert(){
-        alert("アラート");
+    computed: {
+      lessThanThree: function() {
+        return this.counter > 3 ? '3より上' : '3より下'
       }
     }
   })
