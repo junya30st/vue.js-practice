@@ -13,7 +13,7 @@
 <body>
   <div id="app">
     <p>{{counter}}</p>
-    <button @click="counter += 1">+1</button>
+    <button @click="countUp">+1</button>
     <p>{{lessThanThree}}</p>
   </div>
 
@@ -27,6 +27,11 @@
       lessThanThree: function() {
         return this.counter > 3 ? '3より上' : '3より下'
       }
+    },
+    methods: {
+      countUp: function() {
+        his.counter += 1;
+      },
     }
   })
 </script>
